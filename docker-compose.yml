@@ -1,0 +1,49 @@
+services:
+  database:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-employees_db}
+      MYSQL_USER: ${MYSQL_USER:-employee_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-employeepassword}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - employee-network
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: mysql+pymysql://${MYSQL_USER:-employee_user}:${MYSQL_PASSWORD:-employeepassword}@database:3306/${MYSQL_DATABASE:-employees_db}
+    depends_on:
+      database:
+        condition: service_healthy
+    expose:
+      - "8000"
+    networks:
+      - employee-network
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - employee-network
+
+volumes:
+  mysql_data:
+
+networks:
+  employee-network:
+    driver: bridge

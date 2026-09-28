@@ -1,0 +1,27 @@
+# Review Checklist
+
+- [ ] Clone public repository
+- [ ] Push application to own GitHub repository
+- [ ] Explain 3-tier architecture
+- [ ] Explain frontend/backend/database request flow
+- [ ] Build frontend Docker image
+- [ ] Build backend Docker image
+- [ ] Run MySQL container
+- [ ] Run all three tiers with Docker Compose
+- [ ] Demonstrate Add Employee
+- [ ] Demonstrate List Employees
+- [ ] Demonstrate Update Employee
+- [ ] Demonstrate Delete Employee
+- [ ] Explain Docker network
+- [ ] Explain Docker volume
+- [ ] Explain Git branching and PRs
+- [ ] Explain Jenkinsfile
+- [ ] Run Jenkins pipeline
+- [ ] Explain CI/CD stages
+- [ ] Explain AWS deployment
+- [ ] Troubleshoot a failed container/pipeline
+- [ ] Capture only useful screenshots
+- [ ] Stop servers before review
+- [ ] Do not terminate servers
+- [ ] Prepare submission email with subject: 3 tier application
+- [ ] CC Pavan

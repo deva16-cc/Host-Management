@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  background: #172033;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 30px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 8px 30px rgba(20, 30, 50, 0.08);
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0 0 8px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.subtitle {
+  margin: 0;
+  color: #657087;
+}
+
+.architecture {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #dfe5ee;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 30px rgba(20, 30, 50, 0.06);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #d9dfeb;
+  border-radius: 8px;
+  padding: 12px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #172033;
+}
+
+.actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+}
+
+.secondary {
+  background: #e9edf4;
+  color: #172033;
+}
+
+.danger {
+  background: #a52b2b;
+}
+
+.message {
+  margin: 16px 0 0;
+  font-weight: 600;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 13px 10px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+th {
+  font-size: 13px;
+  color: #657087;
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture {
+    white-space: normal;
+  }
+}
